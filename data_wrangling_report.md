@@ -20,3 +20,8 @@ Then using pandas to import and create a pandas dataframe of the so downloaded d
 
 ## The Assess step
 
+The assessment for quality and tidiness issues was done using a combination of the pandas methods of head, tail, info and value_counts.
+
+The further tweet related data that was downloaded programmatically was thrown away after joining the required retweet and favorite columns with the twitter_archive dataset. Hence now I am left with only the twitter_archive_clean_df and the image_pred_df. Hence I assess and clean these datasets only.
+
+In total 2 tidiness issues and 11 quality issues were identified and cleaned for the two datasets.
