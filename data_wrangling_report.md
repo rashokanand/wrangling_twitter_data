@@ -6,3 +6,17 @@ The Udacity team received the dataset from 'WeRateDogs' and then have provided t
 
 In addition to this, Udacity also have given an image predictions dataset. This consists a prediction of the breed of dog from the image posted using an image classification algorithm. The data consists of 3 predictions for each image and the confidence level of each prediction.
 
+There is some missing data in the twitter archive dataset though. Some of the notable omissions are favorite counts and retweet counts. The process of obtaining of these indicators and the overall cleaning for tidyness and quality issues *is* the project. This is further followed by a report on a few insights and visualizations created using the cleaned data.
+
+## The Gather step
+
+The twitter_archive_enhanced dataset was provided as a csv, which I imported using the pandas.read_csv method. And the same goes for the image predictions dataset as well. The dataset was a tsv - Tab separated values - file, so '\t' was passed to the 'sep' argument in the read_csv method. The downloading part of the image predictions file was done programmatically as instructed in the project requirements. The link was provided, which was queried using the requests library's get function.
+
+Using Tweepy - an easy to use python library to access the twitter API - each twitter id is queried for all the tweet related data. Using Tweepy was fairly straightforward, however obtaining the API 'key(s)' - that are needed to access the API - was not. It entails creating a developer account at [developer.twitter.com](developer.twitter.com), and then creating an app. It asks for several details related to usage and data privacy if the app is developed and used.
+
+Each twitter id's queried data comes as a json formatted text string. I used the json.dump(s) method to store the so received dataset. All the so downloaded text data was dumped using the json.dump method to tweet-json.txt.  
+
+Then using pandas to import and create a pandas dataframe of the so downloaded data. I decided to only keep the favorite and retweet counts for each tweet id. More on this later, during the assess and clean steps.
+
+## The Assess step
+
